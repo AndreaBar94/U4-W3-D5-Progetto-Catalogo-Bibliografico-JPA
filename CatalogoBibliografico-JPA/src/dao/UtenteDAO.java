@@ -18,10 +18,10 @@ public class UtenteDAO {
 	}
 
 	public void save(Utente a) {
-		EntityTransaction t = em.getTransaction();
-		t.begin();
+//		EntityTransaction t = em.getTransaction();
+//		t.begin();
 		em.persist(a);
-		t.commit();
+//		t.commit();
 		log.info("Utente salvato!");
 	}
 

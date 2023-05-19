@@ -3,6 +3,8 @@ package entities;
 import java.util.UUID;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -17,6 +19,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Riviste extends Editoria{
 	
+	@Enumerated(EnumType.STRING)
 	private Periodicità periodicità;
 	
 	

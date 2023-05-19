@@ -57,23 +57,30 @@ public class Archivio {
 		//TRANSACTION BEGIN
 		em.getTransaction().begin();
 		
-		//PERSIST
+		//PERSIST RIVISTE
 		em.persist(rivista1);
 		em.persist(rivista2);
 		em.persist(rivista3);
 		em.persist(rivista4);
+		
+		//PERSIST LIBRI
 		em.persist(libro1);
 		em.persist(libro2);
 		em.persist(libro3);
 		em.persist(libro4);
-		em.persist(sofia);
-		em.persist(mario);
-		em.persist(maria);
-		em.persist(giovanni);
-		em.persist(prestito1);
-		em.persist(prestito2);
-		em.persist(prestito3);
-		em.persist(prestito4);
+		
+		//PERSIST UTENTI
+		uDAO.save(sofia);
+		uDAO.save(mario);
+		uDAO.save(maria);
+		uDAO.save(giovanni);
+		
+		
+		//PERSIST PRESTITI
+		pDAO.save(prestito1);
+		pDAO.save(prestito2);
+		pDAO.save(prestito3);
+		pDAO.save(prestito4);
 		
 		//TRANSACTION COMMIT
 		em.getTransaction().commit();
