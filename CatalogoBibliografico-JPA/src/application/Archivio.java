@@ -8,6 +8,8 @@ import javax.persistence.EntityManagerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import dao.ArchivioDAO;
+import dao.EditoriaDAO;
 import dao.PrestitoDAO;
 import dao.UtenteDAO;
 import entities.Libri;
@@ -27,6 +29,8 @@ public class Archivio {
 	public static void main(String[] args) {
 		
 		EntityManager em = emf.createEntityManager();
+		EditoriaDAO eDAO = new EditoriaDAO(em);
+		ArchivioDAO aDAO = new ArchivioDAO(em);
 		UtenteDAO uDAO = new UtenteDAO(em);
 		PrestitoDAO pDAO = new PrestitoDAO(em);
 		
@@ -58,30 +62,32 @@ public class Archivio {
 		em.getTransaction().begin();
 		
 		//PERSIST RIVISTE
-		em.persist(rivista1);
-		em.persist(rivista2);
-		em.persist(rivista3);
-		em.persist(rivista4);
+//		aDAO.save(rivista1);
+//		aDAO.save(rivista2);
+//		aDAO.save(rivista3);
+//		aDAO.save(rivista4);
 		
 		//PERSIST LIBRI
-		em.persist(libro1);
-		em.persist(libro2);
-		em.persist(libro3);
-		em.persist(libro4);
+//		aDAO.save(libro1);
+//		aDAO.save(libro2);
+//		aDAO.save(libro3);
+//		aDAO.save(libro4);
 		
 		//PERSIST UTENTI
-		uDAO.save(sofia);
-		uDAO.save(mario);
-		uDAO.save(maria);
-		uDAO.save(giovanni);
-		
+//		uDAO.save(sofia);
+//		uDAO.save(mario);
+//		uDAO.save(maria);
+//		uDAO.save(giovanni);
 		
 		//PERSIST PRESTITI
-		pDAO.save(prestito1);
-		pDAO.save(prestito2);
-		pDAO.save(prestito3);
-		pDAO.save(prestito4);
+//		pDAO.save(prestito1);
+//		pDAO.save(prestito2);
+//		pDAO.save(prestito3);
+//		pDAO.save(prestito4);
 		
+		//TEST QUERIES
+//		eDAO.delete("085de5cd-024a-4059-a4c5-4bf9f2c11372");
+//		logger.info(eDAO.findByISBN("43c0c1d8-f117-4e2d-8f2d-ec3268842273").toString());
 		//TRANSACTION COMMIT
 		em.getTransaction().commit();
 

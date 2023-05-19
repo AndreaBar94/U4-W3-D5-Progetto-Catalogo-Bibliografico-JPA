@@ -25,9 +25,17 @@ public class EditoriaDAO {
 		log.info("Elemento salvato!");
 	}
 
-	public Editoria findById(String id) {
+	public Editoria findByISBN(String id) {
 		Editoria found = em.find(Editoria.class, UUID.fromString(id));
 		return found;
+	}
+	
+	public void delete(String id) {
+		Editoria found = em.find(Editoria.class, UUID.fromString(id));
+		if (found != null) {
+			em.remove(found);
+			System.out.println("Elemento con id " + id + " eliminato!");
+		}
 	}
 
 }
