@@ -18,10 +18,7 @@ public class PrestitoDAO {
 	}
 
 	public void save(Prestito a) {
-//		EntityTransaction t = em.getTransaction();
-//		t.begin();
 		em.persist(a);
-//		t.commit();
 		log.info("Prestito salvato!");
 	}
 

@@ -55,39 +55,57 @@ public class Archivio {
 		//CREAZIONE PRESTITI
 		Prestito prestito1 = new Prestito(mario, rivista2, LocalDate.of(2023, 1, 1), LocalDate.of(2023, 1, 1), LocalDate.of(2023, 1, 15));
 		Prestito prestito2 = new Prestito(maria, libro3, LocalDate.of(2023, 3, 15), LocalDate.of(2023, 3, 15), LocalDate.of(2023, 4, 2));
-		Prestito prestito3 = new Prestito(giovanni, libro1, LocalDate.of(2023, 6, 20), LocalDate.of(2023, 6, 20), LocalDate.of(2023, 6, 22));
+		Prestito prestito3 = new Prestito(giovanni, libro1, LocalDate.of(2022, 6, 20), LocalDate.of(2022, 6, 20), LocalDate.of(2023, 6, 22));
 		Prestito prestito4 = new Prestito(sofia, rivista1, LocalDate.of(2023, 9, 28), LocalDate.of(2023, 9, 28), LocalDate.of(2023, 3, 12));
+		Prestito prestito5 = new Prestito(giovanni, rivista1, LocalDate.of(2023, 9, 28), LocalDate.of(2023, 9, 28), null);
+		Prestito prestito6 = new Prestito(maria, rivista3, LocalDate.now(),  LocalDate.now(), null);
+		Prestito prestito7 = new Prestito(mario, libro4,  LocalDate.now(),  LocalDate.now(), null);
+		
+		//Istanzio la data restituzione effettiva su null per testare
+		prestito3.setDataRestituzioneEffettiva(null);
+		prestito5.setDataRestituzioneEffettiva(null);
+		prestito6.setDataRestituzioneEffettiva(null);
+		prestito7.setDataRestituzioneEffettiva(null);
 		
 		//TRANSACTION BEGIN
 		em.getTransaction().begin();
 		
 		//PERSIST RIVISTE
-//		aDAO.save(rivista1);
-//		aDAO.save(rivista2);
-//		aDAO.save(rivista3);
-//		aDAO.save(rivista4);
+		aDAO.save(rivista1);
+		aDAO.save(rivista2);
+		aDAO.save(rivista3);
+		aDAO.save(rivista4);
 		
 		//PERSIST LIBRI
-//		aDAO.save(libro1);
-//		aDAO.save(libro2);
-//		aDAO.save(libro3);
-//		aDAO.save(libro4);
+		aDAO.save(libro1);
+		aDAO.save(libro2);
+		aDAO.save(libro3);
+		aDAO.save(libro4);
 		
 		//PERSIST UTENTI
-//		uDAO.save(sofia);
-//		uDAO.save(mario);
-//		uDAO.save(maria);
-//		uDAO.save(giovanni);
+		uDAO.save(sofia);
+		uDAO.save(mario);
+		uDAO.save(maria);
+		uDAO.save(giovanni);
 		
 		//PERSIST PRESTITI
-//		pDAO.save(prestito1);
-//		pDAO.save(prestito2);
-//		pDAO.save(prestito3);
-//		pDAO.save(prestito4);
+		pDAO.save(prestito1);
+		pDAO.save(prestito2);
+		pDAO.save(prestito3);
+		pDAO.save(prestito4);
+		pDAO.save(prestito5);
+		pDAO.save(prestito6);
+		pDAO.save(prestito7);
 		
 		//TEST QUERIES
 //		eDAO.delete("085de5cd-024a-4059-a4c5-4bf9f2c11372");
 //		logger.info(eDAO.findByISBN("43c0c1d8-f117-4e2d-8f2d-ec3268842273").toString());
+//		eDAO.getByYear(2000);
+//		eDAO.getByAuthor("J. R. R. Tolkien");
+//		eDAO.getByTitle("Potter");
+//		eDAO.getElementsByIdCard("df5e3ee1-5af2-4159-8ab5-29618b075c77");
+//		eDAO.getExpired();
+		
 		//TRANSACTION COMMIT
 		em.getTransaction().commit();
 

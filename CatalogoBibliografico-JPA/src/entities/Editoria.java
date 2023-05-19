@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.NamedQuery;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@NamedQuery(name = "findByYear", query = "SELECT y FROM Editoria y WHERE y.annoPub = :annoPub")
+@NamedQuery(name = "getByTitle", query = "SELECT t FROM Editoria t WHERE t.titolo LIKE CONCAT('%', :titolo, '%')")
 public abstract class Editoria {
 	
 	@Id

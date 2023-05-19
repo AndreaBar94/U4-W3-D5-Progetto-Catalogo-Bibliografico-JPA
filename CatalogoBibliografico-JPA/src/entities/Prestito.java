@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -18,6 +19,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@NamedQuery(name = "getElementsByIdCard", query = "SELECT e.elementoPrestato FROM Prestito e JOIN e.utente u WHERE u.numeroTessera = :numeroTessera AND e.dataRestituzioneEffettiva IS NULL")
+@NamedQuery(name = "getExpired", query = "SELECT p.elementoPrestato FROM Prestito p WHERE p.dataRestituzionePrevista < CURRENT_DATE AND p.dataRestituzioneEffettiva IS NULL")
 public class Prestito {
 	
 	@Id 

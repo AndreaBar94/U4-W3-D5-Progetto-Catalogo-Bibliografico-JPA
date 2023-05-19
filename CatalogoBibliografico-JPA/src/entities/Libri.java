@@ -3,6 +3,7 @@ package entities;
 import java.util.UUID;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -14,6 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@NamedQuery(name = "findByAuthor", query = "SELECT a FROM Libri a WHERE a.autore = :autore")
 public class Libri extends Editoria{
 	
 	private String autore;
